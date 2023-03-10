@@ -34,7 +34,7 @@ public class Main {
                     System.exit(1);
 
                 default:
-                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                     System.out.flush();
                     System.out.println("Atenção!\nVoce inseriu uma opção invalida. Por favor\n"+
                             "Informe o numero a frente da sua opção escolhida\n\n");
