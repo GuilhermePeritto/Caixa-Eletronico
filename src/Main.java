@@ -23,21 +23,17 @@ public class Main {
             switch (opcao){
 
                 case "1":
-
                     System.out.println("Voce selecionou a opção 1");
                     break;
 
                 case "2":
-
                     System.out.println("Voce selecionou a opção 2");
                     break;
 
                 case "3":
-
                     System.exit(1);
 
                 default:
-
                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                     System.out.flush();
                     System.out.println("Atenção!\nVoce inseriu uma opção invalida. Por favor\n"+
