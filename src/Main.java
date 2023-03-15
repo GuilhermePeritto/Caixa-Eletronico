@@ -1,15 +1,14 @@
-import javafx.animation.PauseTransition;
-import javafx.scene.paint.Stop;
-
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
         Scanner ler = new Scanner(System.in);
         Loading carregar = new Loading();
-        CalculoCedulas calcular = new CalculoCedulas();
+        CalculoCedulasSaque calcular = new CalculoCedulasSaque();
         LimparConsole limpar = new LimparConsole();
+        ArrayList<Integer> cedulasDisponiveis = new ArrayList<Integer>();
 
 
         //menu
@@ -20,7 +19,8 @@ public class Main {
             System.out.print("Escolha uma opção: \n"+
                     "1 - Sacar\n" +
                     "2 - Depositar\n" +
-                    "3 - Sair\n\n"+
+                    "3 - Consultuar \n"+
+                    "4 - Sair\n\n"+
                     "Infome o numero a frente de sua escolha: "
             );
 
@@ -74,10 +74,14 @@ public class Main {
                         }
                     }
                 case 2:
-
+                    calcular.adicionarcedulas();
                     break;
 
                 case 3:
+                        calcular.mostrarcedulas();
+                    break;
+
+                case 4:
                     System.exit(1);
 
                 default:
