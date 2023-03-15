@@ -30,8 +30,9 @@ public class Main {
 
                 case 1:
                     for( int j = 0;j<1;j--) {
+                        int confirmar;
                         System.out.println("Infome o valor para o saque: ");
-                        double saque = ler.nextDouble();
+                        int saque = ler.nextInt();
                         System.out.println("Voce deseja receber o valor em cedulas maiores ou menores?\n" +
                                 "1 - Maiores\n" +
                                 "2 - Menores\n");
@@ -39,22 +40,36 @@ public class Main {
                         if (tiposaque != 1 && tiposaque != 2) {
                             System.out.println("Voce inseriu uma resposta invalida!");
                             continue;
-                        } else {//loading
+                        }
+                        else {
+                            //loading
                             carregar.carregar();
 
                             //Estrutura para calcular a quantidade de notas e imprimir na tela
                             calcular.calcular(saque, tiposaque);
 
-                            System.out.println("\nConfirmar recebimento:\n" +
-                                    "1 - Sim" +
-                                    "    2 - Não\n");
-                            int confirmar = ler.nextInt();
-                            if (confirmar == 1) {
-                                // futuramente decrementar da quant de cedulas
-                                break;
+                            //Estrutura para servir como menu de confirmação de recebimento
+                            while(10<100){
+                                System.out.println("\nConfirmar recebimento:\n" +
+                                        "1 - Sim" +
+                                        "    2 - Não\n");
+                                confirmar = ler.nextInt();
+
+                                if (confirmar == 1) {
+                                    // futuramente decrementar da quant de cedulas
+                                    break;
+
+                                }
+                                else if (confirmar == 2){
+                                    break;
+                                }
+                                else {
+                                    LimparConsole.Limpar();
+                                    System.out.println("\nInforme um valor valido!\n");
+                                }
                             }
-                            else {
-                                continue;
+                            if(confirmar==1){
+                                break;
                             }
                         }
                     }
@@ -66,9 +81,8 @@ public class Main {
                     System.exit(1);
 
                 default:
-                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                    System.out.flush();
-                    System.out.println("Atenção!\nVoce inseriu uma opção invalida. Por favor\n"+
+
+                    System.out.println("\n\n\n\nAtenção!\nVoce inseriu uma opção invalida. Por favor\n"+
                             "Informe o numero a frente da sua opção escolhida\n\n");
 
             }

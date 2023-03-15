@@ -16,7 +16,7 @@ public class Loading {
                 default:
                     break;
             }
-            Thread.sleep(30);
+            Thread.sleep(10);
             i++;
         }
         System.out.println("\n\n");

@@ -6,6 +6,6 @@ public class LimparConsole {
             for(int i = 0; i < 200; i++)
                 System.out.println("");
         }
-        System.out.println("Sucesso!\n\n");
+//        System.out.println("Sucesso!\n\n");
     }
 }
