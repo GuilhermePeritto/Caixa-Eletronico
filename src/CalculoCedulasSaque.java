@@ -6,6 +6,7 @@ public class CalculoCedulasSaque {
     Scanner ler = new Scanner(System.in);
     ArrayList<Integer> quantidades = new ArrayList<>();
     int[] notas = {200, 100, 50, 20, 10, 5};
+    boolean cedulasSuficientes = true;
 
     public void calcular(int saque, int tiposaque) {
 
@@ -16,7 +17,6 @@ public class CalculoCedulasSaque {
                 quantidades.add(quantidade);
                 saque %= notas[i];
             }
-            boolean cedulasSuficientes = true;
 
             for (int i = 0; i < quantidades.size(); i++) {
                 if (cedulasDisponiveis.get(i) < quantidades.get(i)) {
@@ -26,13 +26,16 @@ public class CalculoCedulasSaque {
                 }
             }
 
-            for (int i = 0; i < notas.length; i++) {
+            for (int i = 0; i < cedulasDisponiveis.size(); i++) {
                 if (cedulasSuficientes) {
                     for (i = 0; i < quantidades.size(); i++) {
                         cedulasDisponiveis.set(i, cedulasDisponiveis.get(i) - quantidades.get(i));
                     }
-//                    if (quantidades.get(i) > 0) {
-//                        System.out.println("Notas de R$" + notas[i] + ": " + quantidades.get(i));
+                }
+            }
+
+            for(int i = 0; i<notas.length;i++) {
+                if (quantidades.get(i) > 0) {
                     System.out.println("Notas de R$" + notas[i] + ": " + quantidades.get(i));
                 }
             }
@@ -44,7 +47,7 @@ public class CalculoCedulasSaque {
     }
     public void mostrarcedulas() {
          for(int i = 0; i < cedulasDisponiveis.size();i++) {
-            System.out.println(cedulasDisponiveis.get(i));
+            System.out.println("Notas de "+ notas[i] + " R$: " + cedulasDisponiveis.get(i));
         }
     }
 

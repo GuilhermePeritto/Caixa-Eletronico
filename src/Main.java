@@ -71,6 +71,7 @@ public class Main {
                             if(confirmar==1){
                                 break;
                             }
+                            break;
                         }
                     }
                 case 2:
@@ -79,6 +80,8 @@ public class Main {
 
                 case 3:
                         calcular.mostrarcedulas();
+                    System.out.println("\nPrecione 1 para continuar");
+                    ler.nextInt();
                     break;
 
                 case 4:
