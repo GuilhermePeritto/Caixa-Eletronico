@@ -8,12 +8,14 @@ public class CalculoCedulasSaque {
     ArrayList<Integer> quantidades = new ArrayList<>();
 
     int[] notas = {200, 100, 50, 20, 10, 5, 2, 1};
-    boolean cedulasSuficientes = true;
+
+    boolean cedulasSuficientes;
 
     public void calcular(int saque, int tiposaque) throws IOException, InterruptedException {
 
         if(tiposaque == 1) {
             //maiores
+            cedulasSuficientes = true;
             for (int i = 0; i < notas.length; i++) {
                 int quantidade = saque / notas[i];
                 quantidades.add(quantidade);

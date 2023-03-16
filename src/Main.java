@@ -8,6 +8,7 @@ public class Main {
         Loading carregar = new Loading();
         CalculoCedulasSaque calcular = new CalculoCedulasSaque();
         LimparConsole limpar = new LimparConsole();
+        String Mensagem = "";
 
         //popula o array definindo quant 0 para todas as notas
         calcular.IniciarCedulas();
@@ -18,13 +19,15 @@ public class Main {
         for(int contmenu = 0;contmenu<1;contmenu--){
 
             LimparConsole.Limpar();
-            System.out.print("Escolha uma opção: \n"+
+            System.out.println(Mensagem);
+            System.out.print("\n\nEscolha uma opção: \n"+
                     "1 - Sacar\n" +
                     "2 - Depositar\n" +
                     "3 - Consultuar \n"+
                     "4 - Sair\n\n"+
                     "Infome o numero a frente de sua escolha: "
             );
+            Mensagem = "";
 
             int opcao = ler.nextInt();
             int confirmar;
@@ -58,7 +61,7 @@ public class Main {
                                 confirmar = ler.nextInt();
 
                                 if (confirmar == 1) {
-                                    // futuramente decrementar da quant de cedulas
+                                    Mensagem = "Saque realizado com sucesso! ";
                                     break;
 
                                 } else if (confirmar == 2) {
@@ -74,10 +77,11 @@ public class Main {
                     break;
                 case 2:
                     calcular.adicionarcedulas();
+                    Mensagem = "Valores depositados com sucesso! ";
                     break;
 
                 case 3:
-                        calcular.mostrarcedulas();
+                    calcular.mostrarcedulas();
                     System.out.println("\nPrecione qualquer tecla para continuar: ");
                     ler.nextInt();
                     break;
