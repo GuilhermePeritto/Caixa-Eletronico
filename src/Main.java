@@ -25,12 +25,12 @@ public class Main {
             );
 
             int opcao = ler.nextInt();
+            int confirmar;
 
             switch (opcao){
 
                 case 1:
                     for( int j = 0;j<1;j--) {
-                        int confirmar;
                         System.out.println("Infome o valor para o saque: ");
                         int saque = ler.nextInt();
                         System.out.println("Voce deseja receber o valor em cedulas maiores ou menores?\n" +
@@ -49,7 +49,7 @@ public class Main {
                             calcular.calcular(saque, tiposaque);
 
                             //Estrutura para servir como menu de confirmação de recebimento
-                            while(10<100){
+                            while (10 < 100) {
                                 System.out.println("\nConfirmar recebimento:\n" +
                                         "1 - Sim" +
                                         "    2 - Não\n");
@@ -59,21 +59,17 @@ public class Main {
                                     // futuramente decrementar da quant de cedulas
                                     break;
 
-                                }
-                                else if (confirmar == 2){
+                                } else if (confirmar == 2) {
                                     break;
-                                }
-                                else {
+                                } else {
                                     LimparConsole.Limpar();
                                     System.out.println("\nInforme um valor valido!\n");
                                 }
                             }
-                            if(confirmar==1){
-                                break;
-                            }
                             break;
                         }
                     }
+                    break;
                 case 2:
                     calcular.adicionarcedulas();
                     break;
