@@ -8,7 +8,9 @@ public class Main {
         Loading carregar = new Loading();
         CalculoCedulasSaque calcular = new CalculoCedulasSaque();
         LimparConsole limpar = new LimparConsole();
-        ArrayList<Integer> cedulasDisponiveis = new ArrayList<Integer>();
+
+        //popula o array definindo quant 0 para todas as notas
+        calcular.IniciarCedulas();
 
 
         //menu
@@ -49,7 +51,7 @@ public class Main {
                             calcular.calcular(saque, tiposaque);
 
                             //Estrutura para servir como menu de confirmação de recebimento
-                            while (10 < 100) {
+                            while (calcular.cedulasSuficientes) {
                                 System.out.println("\nConfirmar recebimento:\n" +
                                         "1 - Sim" +
                                         "    2 - Não\n");
@@ -76,7 +78,7 @@ public class Main {
 
                 case 3:
                         calcular.mostrarcedulas();
-                    System.out.println("\nPrecione 1 para continuar");
+                    System.out.println("\nPrecione qualquer tecla para continuar: ");
                     ler.nextInt();
                     break;
 

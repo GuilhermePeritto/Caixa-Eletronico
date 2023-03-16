@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -5,10 +6,11 @@ public class CalculoCedulasSaque {
     ArrayList<Integer> cedulasDisponiveis = new ArrayList<Integer>();
     Scanner ler = new Scanner(System.in);
     ArrayList<Integer> quantidades = new ArrayList<>();
-    int[] notas = {200, 100, 50, 20, 10, 5};
+
+    int[] notas = {200, 100, 50, 20, 10, 5, 2, 1};
     boolean cedulasSuficientes = true;
 
-    public void calcular(int saque, int tiposaque) {
+    public void calcular(int saque, int tiposaque) throws IOException, InterruptedException {
 
         if(tiposaque == 1) {
             //maiores
@@ -20,12 +22,25 @@ public class CalculoCedulasSaque {
 
             for (int i = 0; i < quantidades.size(); i++) {
                 if (cedulasDisponiveis.get(i) < quantidades.get(i)) {
-                    System.out.println("Não há cédulas disponíveis suficientes para efetuar o saque.");
                     cedulasSuficientes = false;
+                    LimparConsole.Limpar();
+                    while (!cedulasSuficientes) {
+                        System.out.println("\n\"Não há cédulas disponíveis suficientes para efetuar o saque!\"\n" +
+                                "\nPrecione 1 para continuar: ");
+                        int confirmar = ler.nextInt();
+
+                        if (confirmar == 1) {
+                            break;
+                        }
+                        else {
+                            LimparConsole.Limpar();
+                            System.out.println("\nInforme um valor valido!\n");
+                        }
+                    }
                     break;
                 }
             }
-
+            //remover cedulas
             for (int i = 0; i < cedulasDisponiveis.size(); i++) {
                 if (cedulasSuficientes) {
                     for (i = 0; i < quantidades.size(); i++) {
@@ -35,26 +50,38 @@ public class CalculoCedulasSaque {
             }
 
             for(int i = 0; i<notas.length;i++) {
-                if (quantidades.get(i) > 0) {
+                if (quantidades.get(i) > 0 && cedulasSuficientes) {
                     System.out.println("Notas de R$" + notas[i] + ": " + quantidades.get(i));
                 }
             }
         }
+
         //menores
         else{
+            LimparConsole.Limpar();
             System.out.println("Ainda nao desenvolvelmos essa funçõa, favor entrar em contato com o mundial do palmeiras");
         }
     }
-    public void mostrarcedulas() {
+
+
+    public void mostrarcedulas() throws IOException, InterruptedException {
+        LimparConsole.Limpar();
          for(int i = 0; i < cedulasDisponiveis.size();i++) {
             System.out.println("Notas de "+ notas[i] + " R$: " + cedulasDisponiveis.get(i));
         }
     }
 
-    public void adicionarcedulas() {
+    public void adicionarcedulas() throws IOException, InterruptedException {
         for (int i = 0; i < notas.length; i++){
-            System.out.println("Quantas notas de " + notas[i] + " R$ voce quer depositar?");
-           cedulasDisponiveis.add(ler.nextInt());
+            LimparConsole.Limpar();
+            System.out.println("\nQuantas notas de " + notas[i] + " R$ voce quer depositar?");
+           cedulasDisponiveis.set(i, cedulasDisponiveis.get(i)+ler.nextInt());
+        }
+    }
+
+    public void IniciarCedulas(){
+        for (int i = 0; i < notas.length; i++){
+            cedulasDisponiveis.add(0);
         }
     }
 }
