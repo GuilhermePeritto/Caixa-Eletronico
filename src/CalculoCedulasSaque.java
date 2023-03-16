@@ -1,3 +1,4 @@
+import javax.lang.model.element.QualifiedNameable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,6 +17,10 @@ public class CalculoCedulasSaque {
         if(tiposaque == 1) {
             //maiores
             cedulasSuficientes = true;
+            //zerar o array quantidades para a proxima execução
+            while (quantidades.size()>0){
+                quantidades.clear();
+            }
             for (int i = 0; i < notas.length; i++) {
                 int quantidade = saque / notas[i];
                 quantidades.add(quantidade);
@@ -50,7 +55,7 @@ public class CalculoCedulasSaque {
                     }
                 }
             }
-
+            LimparConsole.Limpar();
             for(int i = 0; i<notas.length;i++) {
                 if (quantidades.get(i) > 0 && cedulasSuficientes) {
                     System.out.println("Notas de R$" + notas[i] + ": " + quantidades.get(i));

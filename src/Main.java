@@ -23,7 +23,7 @@ public class Main {
             System.out.print("\n\nEscolha uma opção: \n"+
                     "1 - Sacar\n" +
                     "2 - Depositar\n" +
-                    "3 - Consultuar \n"+
+                    "3 - Consultar \n"+
                     "4 - Sair\n\n"+
                     "Infome o numero a frente de sua escolha: "
             );
