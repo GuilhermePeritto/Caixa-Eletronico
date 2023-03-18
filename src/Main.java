@@ -38,20 +38,11 @@ public class Main {
                     for( int j = 0;j<1;j--) {
                         System.out.println("Infome o valor para o saque: ");
                         int saque = ler.nextInt();
-                        System.out.println("Voce deseja receber o valor em cedulas maiores ou menores?\n" +
-                                "1 - Maiores\n" +
-                                "2 - Menores\n");
-                        int tiposaque = ler.nextInt();
-                        if (tiposaque != 1 && tiposaque != 2) {
-                            System.out.println("Voce inseriu uma resposta invalida!");
-                            continue;
-                        }
-                        else {
                             //loading
                             carregar.carregar();
 
                             //Estrutura para calcular a quantidade de notas e imprimir na tela
-                            calcular.calcular(saque, tiposaque);
+                            calcular.calcular(saque);
 
                             //Estrutura para servir como menu de confirmação de recebimento
                             while (calcular.cedulasSuficientes) {
@@ -73,7 +64,6 @@ public class Main {
                             }
                             break;
                         }
-                    }
                     break;
                 case 2:
                     calcular.adicionarcedulas();

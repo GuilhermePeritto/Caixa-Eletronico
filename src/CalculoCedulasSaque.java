@@ -12,9 +12,7 @@ public class CalculoCedulasSaque {
 
     boolean cedulasSuficientes;
 
-    public void calcular(int saque, int tiposaque) throws IOException, InterruptedException {
-
-        if(tiposaque == 1) {
+    public void calcular(int saque) throws IOException, InterruptedException {
             //maiores
             cedulasSuficientes = true;
             //zerar o array quantidades para a proxima execução
@@ -61,13 +59,6 @@ public class CalculoCedulasSaque {
                     System.out.println("Notas de R$" + notas[i] + ": " + quantidades.get(i));
                 }
             }
-        }
-
-        //menores
-        else{
-            LimparConsole.Limpar();
-            System.out.println("Ainda nao desenvolvelmos essa funçõa, favor entrar em contato com o mundial do palmeiras");
-        }
     }
 
 
